@@ -1,5 +1,7 @@
 UNITY_ROOT = ../../Unity-master
-SRC_FILES = RtcTime.c
+SRC_FILES = \
+	RtcTime.c 	\
+	-I.
 
 UNITY_SRC = \
 	-I$(UNITY_ROOT)/extras/fixture/src 	\
