@@ -18,6 +18,7 @@ all: clean default
 
 default:
 	gcc -o $(TARGET) $(SRC_FILES) $(UNITY_SRC) $(TEST_SRC)
+	./$(TARGET)
 
 clean:
 	rm -f *.o $(TARGET)
