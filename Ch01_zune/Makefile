@@ -8,7 +8,7 @@ UNITY_SRC = \
 	$(UNITY_ROOT)/extras/fixture/src/unity_fixture.c
 
 TEST_SRC = \
-	test/All_test.c \
+	test/all_test.c \
 	test/TestZune.c \
 	test/TestZune_Runner.c
 
