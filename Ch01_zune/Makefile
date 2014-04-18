@@ -17,7 +17,7 @@ TARGET = TestZune
 all: clean default
 
 default:
-	gcc -o $(TARGET) $(SRC_FILES) $(UNITY_SRC)
+	gcc -o $(TARGET) $(SRC_FILES) $(UNITY_SRC) $(TEST_SRC)
 
 clean:
 	rm -f *.o $(TARGET)
