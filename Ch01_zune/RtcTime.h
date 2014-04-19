@@ -7,3 +7,5 @@ typedef struct
 
 void PreCondition(RtcTime * time);
 void SetYearAndDayOfYear(RtcTime * time);
+int daysSince1980ForYear(int year);
+void RtcTime_Create(RtcTime * time, int initialDay);

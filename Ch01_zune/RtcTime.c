@@ -29,6 +29,45 @@ void PreCondition(RtcTime * time)
 
 void SetYearAndDayOfYear(RtcTime * time)
 {
-	
+	//int days = time->daysSince1980;
+
 }
 
+int daysSince1980ForYear(int year)
+{
+	/* 원하는 해를 입력하면, 1980년부터 그 해의 시작시점까지 날 수 계산	*/
+	int days = 0;
+
+	struct tm firstDay_1980;
+	struct tm firstDay_year;
+
+	firstDay_1980.tm_year = 1980 - 1900;
+	firstDay_1980.tm_mon = 1 - 1;
+	firstDay_1980.tm_mday = 1;
+	firstDay_1980.tm_hour = 0;
+	firstDay_1980.tm_min = 0;
+	firstDay_1980.tm_sec = 0;
+	firstDay_1980.tm_isdst = 0;
+
+	firstDay_year.tm_year = year - 1900;
+	firstDay_year.tm_mon = 1 - 1;
+	firstDay_year.tm_mday = 1;
+	firstDay_year.tm_hour = 8;
+	firstDay_year.tm_min = 0;
+	firstDay_year.tm_sec = 0;
+	firstDay_year.tm_isdst = 0;
+
+	days = (mktime(&firstDay_year) - mktime(&firstDay_1980))/(60*60*24) + 1;
+	
+	return days;
+}
+
+void RtcTime_Create(RtcTime * time, int initialDay)
+{
+
+}
+
+void assertDate(RtcTime * time, int year, int month, int day)
+{
+
+}
