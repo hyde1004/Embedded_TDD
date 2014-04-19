@@ -1,8 +1,7 @@
 #include <time.h>
 #include "RtcTime.h"
 
-
-void SetYearAndDayOfYear(RtcTime * time)
+void PreCondition(RtcTime * time)
 {
 	/* 	2008.12.31까지의 날수를 입력하고, 
 		그 날수를 입력했을때, 2008.12.31일 나오는지 계산	*/
@@ -26,5 +25,10 @@ void SetYearAndDayOfYear(RtcTime * time)
 	theDay_2008_12_31.tm_isdst = 0;
 
 	time->daysSince1980 = (mktime(&theDay_2008_12_31) - mktime(&firstDay_1980))/(60*60*24) + 1;
+}
+
+void SetYearAndDayOfYear(RtcTime * time)
+{
+	
 }
 

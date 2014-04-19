@@ -5,4 +5,5 @@ typedef struct
 	unsigned int dayOfYear;
 } RtcTime;
 
+void PreCondition(RtcTime * time);
 void SetYearAndDayOfYear(RtcTime * time);
