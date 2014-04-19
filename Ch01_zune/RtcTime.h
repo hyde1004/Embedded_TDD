@@ -1,6 +1,6 @@
 typedef struct
 {
-	unsigned int daysSince1970;
+	unsigned int daysSince1980;
 	unsigned int year;
 	unsigned int dayOfYear;
 } RtcTime;

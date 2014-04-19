@@ -23,5 +23,5 @@ TEST(zune, 2008_12_31_last_day_of_leap_year)
 	RtcTime theDay;
 
 	SetYearAndDayOfYear(&theDay);
-	TEST_ASSERT_TRUE(1==1);
+	TEST_ASSERT_EQUAL(theDay.daysSince1980, 10593);
 }
