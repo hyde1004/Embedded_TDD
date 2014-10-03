@@ -1,6 +1,6 @@
 COMPILER = g++
 
-CPPUTEST_HOME = /home/junggu.lee/work/Embedded_TDD/cpputest
+CPPUTEST_HOME = ../../cpputest
 CPPUTEST_LIB = $(CPPUTEST_HOME)/lib
 CPPUTEST_INCLUDE = $(CPPUTEST_HOME)/include
 
