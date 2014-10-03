@@ -1,7 +1,8 @@
 COMPILER = g++
 
 CPPUTEST_HOME = ../../cpputest
-CPPUTEST_LIB = $(CPPUTEST_HOME)/lib
+CPPUTEST_LIB = $(CPPUTEST_HOME)/lib/mac_os
+#CPPUTEST_LIB = $(CPPUTEST_HOME)/lib/linux
 CPPUTEST_INCLUDE = $(CPPUTEST_HOME)/include
 
 TEST_DIR = test/AllTests.cpp	\
