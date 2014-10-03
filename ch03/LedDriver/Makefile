@@ -4,12 +4,12 @@ CPPUTEST_HOME = /home/junggu.lee/work/Embedded_TDD/cpputest
 CPPUTEST_LIB = $(CPPUTEST_HOME)/lib
 CPPUTEST_INCLUDE = $(CPPUTEST_HOME)/include
 
-TEST_DIR = test/LedDriver/AllTests.cpp	\
-	test/LedDriver/LedDriverTest.cpp
+TEST_DIR = test/AllTests.cpp	\
+	test/LedDriverTest.cpp
 
-CODE_DIR = src/LedDriver/LedDriver.c
+CODE_DIR = src/LedDriver.c
 
-CODE_INCLUDE = src/LedDriver
+CODE_INCLUDE = src
 
 OUTPUT = unittest
 
