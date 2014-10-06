@@ -24,5 +24,10 @@ void LedDriver_TurnOn(int ledNumber)
 
 void LedDriver_TurnOff(int ledNumber)
 {
-	*ledAddress = 0;
+	*ledAddress &= ~(1 << (ledNumber - 1));
+}
+
+void LedDriver_TurnAllOn(void)
+{
+	*ledAddress = 0xffff;
 }
