@@ -50,3 +50,10 @@ TEST(LedDriver, AllOn)
 	LedDriver_TurnAllOn();
 	LONGS_EQUAL(0xffff, virtualLeds);
 }
+
+TEST(LedDriver, LedMemoryIsNotReadable)
+{
+	virtualLeds = 0xffff;
+	LedDriver_TurnOn(8);
+	LONGS_EQUAL(0x80, virtualLeds);
+}
