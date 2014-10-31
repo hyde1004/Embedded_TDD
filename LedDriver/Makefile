@@ -9,11 +9,19 @@ TEST_DIR = test/AllTests.cpp	\
 
 CODE_DIR = src/LedDriver.c
 
-CODE_INCLUDE = src
+CODE_INCLUDE = src	\
+
+INCLUDE = include
+
+MOCKS_DIR = mocks/RuntimeErrorStub.c
+
+MOCKS_INCLUDE = mocks
 
 OUTPUT = unittest
 
 $(OUTPUT): $(TEST_DIR) $(CODE_DIR)
-	$(COMPILER) -o $(OUTPUT) $(TEST_DIR) $(CODE_DIR) -I$(CODE_INCLUDE) -I$(CPPUTEST_INCLUDE) -L$(CPPUTEST_LIB) -lCppUTest
+	$(COMPILER) -o $(OUTPUT) $(TEST_DIR) $(CODE_DIR) -I$(CODE_INCLUDE) -I$(CPPUTEST_INCLUDE) -I$(INCLUDE)	\
+	$(MOCKS_DIR) -I$(MOCKS_INCLUDE)	\
+	-L$(CPPUTEST_LIB) -lCppUTest
 clean: 
 	rm -f $(OUTPUT)
