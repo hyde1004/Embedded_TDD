@@ -20,20 +20,26 @@ MOCKS_INCLUDE = mocks
 OUTPUT = unittest
 
 $(OUTPUT): LedDriverTest.o AllTests.o LedDriver.o RuntimeErrorStub.o
-	$(COMPILER) -o $(OUTPUT) LedDriverTest.o AllTests.o LedDriver.o RuntimeErrorStub.o 	\
+	@echo "Linking ..."
+	@$(COMPILER) -o $(OUTPUT) LedDriverTest.o AllTests.o LedDriver.o RuntimeErrorStub.o 	\
 	-L$(CPPUTEST_LIB) -lCppUTest
 
 LedDriverTest.o: test/LedDriverTest.cpp src/LedDriver.h mocks/RuntimeErrorStub.h
-	$(COMPILER) -c test/LedDriverTest.cpp -I./src -I./mocks -I$(CPPUTEST_INCLUDE)
+	@echo "Compile test/LedDriverTest.cpp ..."
+	@$(COMPILER) -c test/LedDriverTest.cpp -I./src -I./mocks -I$(CPPUTEST_INCLUDE)
 
 AllTests.o: test/AllTests.cpp
-	$(COMPILER) -c test/AllTests.cpp -I$(CPPUTEST_INCLUDE)
+	@echo "Compile test/AllTests.cpp ..."
+	@$(COMPILER) -c test/AllTests.cpp -I$(CPPUTEST_INCLUDE)
 
 LedDriver.o: src/LedDriver.c src/LedDriver.h include/util/RuntimeError.h
-	$(COMPILER) -c src/LedDriver.c -I./include
+	@echo "Compile src/LedDriver.c ..."
+	@$(COMPILER) -c src/LedDriver.c -I./include
 
 RuntimeErrorStub.o: mocks/RuntimeErrorStub.c mocks/RuntimeErrorStub.h include/util/RuntimeError.h
-	$(COMPILER) -c mocks/RuntimeErrorStub.c -I./include 
+	@echo "Compile mocks/RuntimeErrorStub.c ..."
+	@$(COMPILER) -c mocks/RuntimeErrorStub.c -I./include 
 
 clean: 
-	rm -f $(OUTPUT) *.o
+	@echo "Cleaning object files ..."
+	@rm -f $(OUTPUT) *.o
