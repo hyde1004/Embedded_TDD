@@ -4,27 +4,16 @@ COMPILER = g++
 CPPUTEST_LIB = $(CPPUTEST_HOME)/lib
 CPPUTEST_INCLUDE = $(CPPUTEST_HOME)/include
 
-TEST_DIR = test/AllTests.cpp	\
-	test/LedDriverTest.cpp
-
-CODE_DIR = src/LedDriver.c
-
-CODE_INCLUDE = src	\
-
-INCLUDE = include
-
-MOCKS_DIR = mocks/RuntimeErrorStub.c
-
-MOCKS_INCLUDE = mocks
-
 OUTPUT = unittest
 
+# Link
 $(OUTPUT): LedDriverTest.o AllTests.o LedDriver.o RuntimeErrorStub.o
 	@echo "Linking ..."
 	@$(COMPILER) -o $(OUTPUT) LedDriverTest.o AllTests.o LedDriver.o RuntimeErrorStub.o 	\
 	-L$(CPPUTEST_LIB) -lCppUTest
 	@echo
 
+# Compile
 LedDriverTest.o: test/LedDriverTest.cpp src/LedDriver.h mocks/RuntimeErrorStub.h
 	@echo "Compile test/LedDriverTest.cpp ..."
 	@$(COMPILER) -c test/LedDriverTest.cpp -I./src -I./mocks -I$(CPPUTEST_INCLUDE)
