@@ -23,6 +23,7 @@ $(OUTPUT): LedDriverTest.o AllTests.o LedDriver.o RuntimeErrorStub.o
 	@echo "Linking ..."
 	@$(COMPILER) -o $(OUTPUT) LedDriverTest.o AllTests.o LedDriver.o RuntimeErrorStub.o 	\
 	-L$(CPPUTEST_LIB) -lCppUTest
+	@echo
 
 LedDriverTest.o: test/LedDriverTest.cpp src/LedDriver.h mocks/RuntimeErrorStub.h
 	@echo "Compile test/LedDriverTest.cpp ..."
@@ -34,12 +35,13 @@ AllTests.o: test/AllTests.cpp
 
 LedDriver.o: src/LedDriver.c src/LedDriver.h include/util/RuntimeError.h
 	@echo "Compile src/LedDriver.c ..."
-	@$(COMPILER) -c src/LedDriver.c -I./include
+	@$(COMPILER) -c -Wno-deprecated src/LedDriver.c -I./include
 
 RuntimeErrorStub.o: mocks/RuntimeErrorStub.c mocks/RuntimeErrorStub.h include/util/RuntimeError.h
 	@echo "Compile mocks/RuntimeErrorStub.c ..."
-	@$(COMPILER) -c mocks/RuntimeErrorStub.c -I./include 
+	@$(COMPILER) -c -Wno-deprecated mocks/RuntimeErrorStub.c -I./include 
 
 clean: 
 	@echo "Cleaning object files ..."
 	@rm -f $(OUTPUT) *.o
+	@echo
