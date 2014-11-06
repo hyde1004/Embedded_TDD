@@ -2,6 +2,7 @@
 #include "util/RuntimeError.h"
 
 enum { ALL_LEDS_ON = ~0, ALL_LEDS_OFF = ~ALL_LEDS_ON };
+enum { FIRST_LED = 1, LAST_LED = 16	};
 
 static uint16_t * ledAddress;
 static uint16_t ledsImage;
@@ -28,7 +29,7 @@ void LedDriver_Destory(void)
 
 void LedDriver_TurnOn(int ledNumber)
 {
-	if (ledNumber <= 0 || ledNumber > 16)
+	if (ledNumber < FIRST_LED || ledNumber > LAST_LED)
 	{
 		RUNTIME_ERROR("LED Driver: out-of-bounds LED", -1);
 		return;
@@ -41,7 +42,7 @@ void LedDriver_TurnOn(int ledNumber)
 
 void LedDriver_TurnOff(int ledNumber)
 {
-	if (ledNumber <= 0 || ledNumber > 16)
+	if (ledNumber < FIRST_LED || ledNumber > LAST_LED)
 		return;
 
 	ledsImage &= ~(convertLedNumberToBit(ledNumber));
