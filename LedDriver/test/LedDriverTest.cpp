@@ -96,3 +96,10 @@ IGNORE_TEST(LedDriver, OutOfBoundsToDo)
 {
 	/*	TODO 	*/
 }
+
+TEST(LedDriver, IsOn)
+{
+	CHECK_FALSE(LedDriver_IsOn(11));
+	LedDriver_TurnOn(11);
+	CHECK_TRUE(LedDriver_IsOn(11));
+}
