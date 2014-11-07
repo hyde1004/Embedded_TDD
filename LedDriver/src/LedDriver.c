@@ -77,15 +77,15 @@ void LedDriver_TurnAllOff(void)
 	updateHardware();
 }
 
-bool LedDriver_IsOn(int ledNumber)
+BOOL LedDriver_IsOn(int ledNumber)
 {
 	if (IsLedOutOfBounds(ledNumber))
-		return false;
+		return FALSE;
 
 	return ledsImage & convertLedNumberToBit(ledNumber);
 }
 
-bool LedDriver_IsOff(int ledNumber)
+BOOL LedDriver_IsOff(int ledNumber)
 {
 	return !LedDriver_IsOn(ledNumber);
 }
