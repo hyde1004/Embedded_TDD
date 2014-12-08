@@ -7,9 +7,9 @@ CPPUTEST_INCLUDE = $(CPPUTEST_HOME)/include
 OUTPUT = unittest
 
 # Link
-$(OUTPUT): LightControllerSpy.o LightSchedulerTest.o AllTests.o 
+$(OUTPUT): LightControllerSpy.o LightSchedulerSpyTest.o AllTests.o 
 	@echo "Linking ..."
-	@$(COMPILER) -o $(OUTPUT) LightControllerSpy.o AllTests.o LightSchedulerTest.o \
+	@$(COMPILER) -o $(OUTPUT) LightControllerSpy.o AllTests.o LightSchedulerSpyTest.o \
 	-L$(CPPUTEST_LIB) -lCppUTest
 	@echo
 
@@ -18,9 +18,9 @@ LightControllerSpy.o: LightControllerSpy.c LightControllerSpy.h LightController.
 	@echo "Compile LightControllerSpy.c ..."
 	@$(COMPILER) -c -Wno-deprecated LightControllerSpy.c -I.
 
-LightSchedulerTest.o: LightSchedulerTest.cpp LightControllerSpy.h
-	@echo "Compile LightSchedulerTest.cpp ..."
-	@$(COMPILER) -c  LightSchedulerTest.cpp -I. -I$(CPPUTEST_INCLUDE)
+LightSchedulerSpyTest.o: LightSchedulerSpyTest.cpp LightControllerSpy.h
+	@echo "Compile LightSchedulerSpyTest.cpp ..."
+	@$(COMPILER) -c  LightSchedulerSpyTest.cpp -I. -I$(CPPUTEST_INCLUDE)
 
 AllTests.o: AllTests.cpp
 	@echo "Compile AllTests.cpp ..."

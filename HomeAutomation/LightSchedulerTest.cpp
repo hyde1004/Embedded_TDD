@@ -1,32 +1,8 @@
-#include "CppUTest/TestHarness.h"
-#include "LightControllerSpy.h"
-
-TEST_GROUP(LightControllerSpy)
+TEST_GROUP(LightScheduler)
 {
-	void setup()
-	{
-		LightController_Create();
-	}
 
-	void teardown()
-	{
-//		LightController_Destroy();
-	}
 };
 
-TEST(LightControllerSpy, Create)
-{
-	LONGS_EQUAL(LIGHT_ID_UNKNOWN, LightControllerSpy_GetLastId());
-	LONGS_EQUAL(LIGHT_STATE_UNKNOWN, LightControllerSpy_GetLastState());
-}
-
-TEST(LightControllerSpy, RememberTheLastLightIdControlled)
-{
-	LightController_On(10);
-	LONGS_EQUAL(10, LightControllerSpy_GetLastId());
-	LONGS_EQUAL(LIGHT_ON, LightControllerSpy_GetLastState());
-}
-/*
 TEST(LightScheduler, ScheduleOnEverydayNotTimeYet)
 {
 	LightScheduler_ScheduleTurnOn(3, EVERYDAY, 1200);
@@ -37,12 +13,9 @@ TEST(LightScheduler, ScheduleOnEverydayNotTimeYet)
 	LONGS_EQUAL(LIGHT_ID_UNKNOWN, LightControllerSpy_GetLastId());
 	LONGS_EQUAL(LIGHT_STATE_UNKNOWN, LightControllerSpy_GetLastState());
 }
-*/
 
-/*
 TEST(LightScheduler, NoChangeToLightsDuringInitialization)
 {
 	LONGS_EQUAL(LIGHT_ID_UNKNOWN, LightControllerSpy_GetLastId());
 	LONGS_EQUAL(LIGHT_STATE_UNKNOWN, LightControllerSpy_GetLastState());
 }
-*/
