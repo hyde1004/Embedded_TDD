@@ -1,3 +1,11 @@
+#include "CppUTest/TestHarness.h"
+#include "FakeTimeService.h"
+
+TEST_GROUP(FakeTimeService)
+{
+
+};
+
 TEST(FakeTimeService, Create)
 {
 	Time time;

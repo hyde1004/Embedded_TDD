@@ -9,6 +9,11 @@ void LightController_Create(void)
 	lastState = LIGHT_STATE_UNKNOWN;
 }
 
+void LightController_Destroy(void)
+{
+
+}
+
 void LightController_On(int id)
 {
 	lastId = id;
